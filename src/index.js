@@ -4,9 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+
+// const lang = {
+//   locale: 'el',
+//   messages: {
+//     "welcome": "歡迎",
+//     "declarative": "歡迎光１１１"
+//   }
+// };
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
