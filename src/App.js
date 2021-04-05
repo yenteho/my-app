@@ -15,18 +15,6 @@ function App() {
 
   return (
     <>
-      <div className="flex">
-        <select
-          value={lang}
-          onChange={(evt) => {
-            setLang(evt.target.value)
-          }}
-        >
-          <option value="en">English</option>
-          <option value="fr">French</option>
-          <option value="ar">Arabic</option>
-        </select>
-      </div>
       <IntlProvider
         // locale ={locale}
         messages={language}
@@ -34,6 +22,19 @@ function App() {
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
+            <div className="flex">
+              <select
+                value={lang}
+                onChange={(evt) => {
+                  setLang(evt.target.value)
+                }}
+              >
+                <option value="en" >English</option>
+                <option value="cn" >中文</option>
+                <option value="fr" >Français</option>
+                <option value="jp" >日本語</option>
+              </select>
+            </div>
             <p>
               <FormattedMessage
                 id="app.header"
@@ -48,10 +49,6 @@ function App() {
             >
               <FormattedMessage id="app.content" defaultMessage="Learn React" />
             </a>
-            <FormattedMessage
-              id="app.channel.plug"
-              defaultMessage="Tutorial brought to you by Lokalise"
-            />
           </header>
         </div>
       </IntlProvider>
