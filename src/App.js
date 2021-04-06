@@ -22,7 +22,7 @@ function App() {
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <div className="flex">
+            <div>
               <select
                 value={lang}
                 onChange={(evt) => {
@@ -38,7 +38,7 @@ function App() {
             <p>
               <FormattedMessage
                 id="app.header"
-                defaultMessage="Edit the files and save to reload"
+                defaultMessage="Edit src/App.js and save to reload."
               />
             </p>
             <a
