@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import translate from "./GoogleTranslatelogo.svg.png";
 import "./App.css";
 import React, { useState, useEffect } from 'react'
-import { FormattedMessage, IntlProvider } from "react-intl";
+import { FormattedMessage, IntlProvider, FormattedDate } from "react-intl";
 
 function App() {
   const [lang, setLang] = useState('en')
@@ -16,6 +16,7 @@ function App() {
 
   return (
     <IntlProvider 
+      locale={locale}
       messages={locale}
     >
       <div className="App">
@@ -51,6 +52,15 @@ function App() {
           >
             <FormattedMessage id="app.content" defaultMessage="Learn React" />
           </a>
+          <p>            
+            <FormattedDate
+              value={new Date()}
+              year="numeric"
+              month="long"
+              day="numeric"
+              weekday="long"
+            />
+          </p>
         </header>
       </div>
     </IntlProvider>
