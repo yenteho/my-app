@@ -6,7 +6,19 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.translate-wrapper{
+  width:450px;
+}
+.translate{
+  height: 30vmin;
+  pointer-events: none;
+  display: inline-block;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

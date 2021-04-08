@@ -1,62 +1,60 @@
-import logo from './logo.svg'
-import './App.css'
+import logo from "./logo.svg";
+import translate from "./GoogleTranslatelogo.svg.png";
+import "./App.css";
 import React, { useState, useEffect } from 'react'
-import { FormattedMessage, IntlProvider } from 'react-intl'
+import { FormattedMessage, IntlProvider } from "react-intl";
 
 function App() {
   const [lang, setLang] = useState('en')
-  const [language, setLanguage] = useState(undefined)
+  const [locale, setLocale] = useState(undefined)
 
-  useEffect(async () => {
+  useEffect(async() => {
     const resp = await fetch(`./lang/${lang}.json`)
     const data = await resp.json()
-    setLanguage(data)
-  }, [lang])
+    setLocale(data)
+  },[lang])
 
   return (
-    <>
-      <div className="flex">
-        <select
-          value={lang}
-          onChange={(evt) => {
-            setLang(evt.target.value)
-          }}
-        >
-          <option value="en">English</option>
-          <option value="fr">French</option>
-          <option value="ar">Arabic</option>
-        </select>
-      </div>
-      <IntlProvider
-        // locale ={locale}
-        messages={language}
-      >
-        <div className="App">
-          <header className="App-header">
+    <IntlProvider 
+      messages={locale}
+    >
+      <div className="App">
+        <header className="App-header">
+          <div className="flex-center">
             <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              <FormattedMessage
-                id="app.header"
-                defaultMessage="Edit the files and save to reload"
-              />
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
+            <div className="translate-wrapper"><img src={translate} className="translate" alt="translate" /></div>
+          </div>
+          <div>
+            <select
+              value={lang}
+              onChange={(evt) => {
+                setLang(evt.target.value);
+              }}
             >
-              <FormattedMessage id="app.content" defaultMessage="Learn React" />
-            </a>
+              <option value="en">English</option>
+              <option value="cn">中文</option>
+              <option value="fr">Français</option>
+              <option value="jp">日本語</option>
+            </select>
+          </div>
+          <p>
             <FormattedMessage
-              id="app.channel.plug"
-              defaultMessage="Tutorial brought to you by Lokalise"
+              id="app.header"
+              defaultMessage="Edit src/App.js and save to reload."
             />
-          </header>
-        </div>
-      </IntlProvider>
-    </>
-  )
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FormattedMessage id="app.content" defaultMessage="Learn React" />
+          </a>
+        </header>
+      </div>
+    </IntlProvider>
+  );
 }
 
-export default App
+export default App;
